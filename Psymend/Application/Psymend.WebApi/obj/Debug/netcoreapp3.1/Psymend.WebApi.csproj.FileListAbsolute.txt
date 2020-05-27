@@ -8,8 +8,6 @@ C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Ps
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Psymend.WebApi.dll
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Psymend.WebApi.pdb
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.csprojAssemblyReference.cache
-C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.csproj.CoreCompileInputs.cache
-C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.AssemblyInfoInputs.cache
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.AssemblyInfo.cs
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.RazorTargetAssemblyInfo.cache
@@ -18,3 +16,14 @@ C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\st
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.dll
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.pdb
 C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.genruntimeconfig.cache
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.csproj.CopyComplete
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.csproj.CoreCompileInputs.cache
+C:\Project\Psymend\Psymend\Application\Psymend.WebApi\obj\Debug\netcoreapp3.1\Psymend.WebApi.MvcApplicationPartsAssemblyInfo.cache
