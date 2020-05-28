@@ -1,11 +1,12 @@
-using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Psymend.WebApi.Authenticate;
+using Psymend.WebApi.Configuration;
+using Psymend.WebApi.Configuration.Model;
+using Psymend.WebApi.Configuration.Modules;
 
 namespace Psymend.WebApi
 {
@@ -23,24 +24,13 @@ namespace Psymend.WebApi
         {
             services.AddControllers();
 
-            var key = Encoding.ASCII.GetBytes("5OQUxPTQJJVM3nmGeYrADZqI8iqNeyvC");
+            var authConfigModel = Configuration.GetSection("AuthenticateConfiguration").Get<AuthenticateConfigurationModel>();
+            services.AddJwtBearerTokenAuthentication(authConfigModel.Secret);
 
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(x =>
-            {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+            // register DI
+            PsymendContainerFactory.RegisterModules(services);
+
+            ConfigurationModule.Register(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

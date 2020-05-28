@@ -1,8 +1,8 @@
 ﻿using Psymend.WebApi.Model;
 
-namespace Psymend.WebApi.Services
+namespace Psymend.WebApi.Authenticate
 {
-    public interface IUserService
+    public interface IAuthService
     {
         User Authenticate(string username, string password);
     }

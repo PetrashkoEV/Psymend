@@ -9,5 +9,9 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.6.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 
 </Project>

@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Psymend.WebApi.Authenticate;
 using Psymend.WebApi.Model;
-using Psymend.WebApi.Services;
 
 namespace Psymend.WebApi.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
-    public class UsersController : ControllerBase
+    [Route("api/user")]
+    public class AuthenticateController : ControllerBase
     {
-        private readonly IUserService _userService;
+        private readonly IAuthService _userService;
 
-        public UsersController()
+        public AuthenticateController(IAuthService userService)
         {
-            _userService = new UserService();
+            _userService = userService;
         }
 
         [AllowAnonymous]
@@ -27,13 +27,6 @@ namespace Psymend.WebApi.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
 
             return Ok(user);
-        }
-
-        [HttpGet]
-        [Authorize(Roles = Role.Admin)]
-        public IActionResult GetAll()
-        {
-            return Ok($"UserId: {User.Identity.Name}");
         }
     }
 }
