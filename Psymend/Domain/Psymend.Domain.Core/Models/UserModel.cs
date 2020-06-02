@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Psymend.Domain.Core.Models.Enums;
 
-namespace Psymend.Infrastructure.Core.Entities
+namespace Psymend.Domain.Core.Models
 {
-    public class UserEntity
+    public class UserModel
     {
         public int UserId { get; set; }
         public string Email { get; set; }
@@ -11,7 +11,6 @@ namespace Psymend.Infrastructure.Core.Entities
         public string LastName { get; set; }
         public string Gender { get; set; }
         public bool Active { get; set; }
-
-        public List<PasswordEntity> Password { get; set; }
+        public string Role { get; set; }
     }
 }

@@ -4,6 +4,6 @@ namespace Psymend.Domain.Core.Services
 {
     public interface IAuthenticateService
     {
-        AuthenticateUserModel GetUser(string userName, string password);
+        AuthenticateUserModel GetUser(string email, string password);
     }
 }

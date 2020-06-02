@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
 using Psymend.WebApi.Configuration.Model;
 using Psymend.WebApi.Model;
@@ -22,23 +23,23 @@ namespace Psymend.WebApi.Authenticate
             _configurationModel = configurationModel.Value;
         }
 
-        public User Authenticate(string username, string password)
+        public AuthenticateUser Authenticate(string email, string password)
         {
-            var user = _service.GetUser(username, password);
+            var user = _service.GetUser(email, password);
 
             if (user == null)
             {
                 return null;
             }
 
-            var model = new User()
+            var model = new AuthenticateUser()
             {
                 Id = user.UserId,
                 Password = user.Password,
                 LastName = user.LastName,
                 FirstName = user.FirstName,
                 Role = Role.Admin,
-                Username = user.UserName
+                Email = user.Email
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();

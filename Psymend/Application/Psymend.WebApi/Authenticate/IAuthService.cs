@@ -4,6 +4,6 @@ namespace Psymend.WebApi.Authenticate
 {
     public interface IAuthService
     {
-        User Authenticate(string username, string password);
+        AuthenticateUser Authenticate(string email, string password);
     }
 }

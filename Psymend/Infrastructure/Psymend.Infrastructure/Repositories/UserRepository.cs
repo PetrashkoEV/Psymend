@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Psymend.Infrastructure.Context;
 using Psymend.Infrastructure.Core;
@@ -15,14 +16,25 @@ namespace Psymend.Infrastructure.Repositories
             Context = new PsymendBaseSqlContext(connectionStringProvider);
         }
 
-        public UserEntity GetUserByIdAndPassword(string userName, string password)
+        public UserEntity GetUserByEmailAndPassword(string email, string password)
         {
             return Context.Users
                 .Include(x => x.Password)
                 .FirstOrDefault(item => 
-                    item.UserName.Equals(userName) && 
-                    item.Password.Any(p => p.Password.Equals(password)) && 
-                    item.Active);
+                    item.Email.Equals(email) && 
+                    item.Password.Any(p => p.Password.Equals(password)));
+        }
+
+        public void CreateUser(UserEntity entity)
+        {
+            Context.Users.Add(entity);
+            Context.SaveChanges();
+        }
+
+        public UserEntity GetUser(int userId)
+        {
+            return Context.Users
+                .FirstOrDefault(item => item.UserId == userId);
         }
     }
 }

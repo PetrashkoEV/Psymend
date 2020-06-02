@@ -14,16 +14,16 @@ namespace Psymend.Domain.Services
             _userRepository = userRepository;
         }
 
-        public AuthenticateUserModel GetUser(string userName, string password)
+        public AuthenticateUserModel GetUser(string email, string password)
         {
-            var userEntity = _userRepository.GetUserByIdAndPassword(userName, password);
+            var userEntity = _userRepository.GetUserByEmailAndPassword(email, password);
 
-            if (userEntity == null)
+            if (userEntity == null || !userEntity.Active)
             {
                 return null;
             }
 
-            return new AuthenticateUserModel()
+            return new AuthenticateUserModel
             {
                 UserId = userEntity.UserId,
                 Password = userEntity.Password.First().Password,
@@ -32,7 +32,7 @@ namespace Psymend.Domain.Services
                 Gender = userEntity.Gender,
                 LastName = userEntity.LastName,
                 PhoneNumber = userEntity.PhoneNumber,
-                UserName = userEntity.UserName
+                Email = userEntity.Email
             };
         }
     }

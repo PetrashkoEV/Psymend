@@ -9,6 +9,7 @@ namespace Psymend.Domain.Configuration
         public static void RegisterModules(IServiceCollection services)
         {
             services.AddTransient<IAuthenticateService, AuthenticateService>();
+            services.AddTransient<IUserService, UserService>();
         }
     }
 }
