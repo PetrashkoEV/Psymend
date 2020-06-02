@@ -32,7 +32,8 @@ namespace Psymend.Domain.Services
                 Gender = userEntity.Gender,
                 LastName = userEntity.LastName,
                 PhoneNumber = userEntity.PhoneNumber,
-                Email = userEntity.Email
+                Email = userEntity.Email,
+                Role = userEntity.RoleName
             };
         }
     }

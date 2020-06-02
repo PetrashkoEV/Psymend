@@ -68,11 +68,21 @@ namespace Psymend.WebApi.Controllers
                 return BadRequest(new { message = "The Password must be filled in." });
             }
 
+            if (string.IsNullOrEmpty(model.Role))
+            {
+                return BadRequest(new { message = "The Role must be filled in." });
+            }
+            else if (model.Role.Equals(Role.Admin))
+            {
+                return BadRequest(new { message = "You cannot create a user with this role." });
+            }
+
             var domainModel = new Domain.Core.Models.CreateUserModel
             {
                 Password = model.Password,
                 PhoneNumber = model.PhoneNumber,
-                Email = model.Email
+                Email = model.Email,
+                Role = model.Role
             };
 
             try

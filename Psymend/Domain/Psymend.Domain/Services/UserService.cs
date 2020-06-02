@@ -38,6 +38,7 @@ namespace Psymend.Domain.Services
                         GeneratedDate = DateTime.UtcNow
                     }
                 },
+                RoleName = viewModel.Role,
                 Active = true
             };
             _userRepository.CreateUser(model);
@@ -63,7 +64,7 @@ namespace Psymend.Domain.Services
                 LastName = model.LastName,
                 Gender = model.Gender,
                 Active = model.Active,
-                Role = Role.User
+                Role = model.RoleName
             };
         }
     }

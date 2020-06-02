@@ -4,7 +4,6 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
 using Psymend.WebApi.Configuration.Model;
 using Psymend.WebApi.Model;
@@ -38,7 +37,7 @@ namespace Psymend.WebApi.Authenticate
                 Password = user.Password,
                 LastName = user.LastName,
                 FirstName = user.FirstName,
-                Role = Role.Admin,
+                Role = user.Role,
                 Email = user.Email
             };
 
