@@ -1,8 +1,10 @@
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NLog;
 using Psymend.WebApi.Authenticate;
 using Psymend.WebApi.Configuration;
 using Psymend.WebApi.Configuration.Model;
@@ -14,6 +16,7 @@ namespace Psymend.WebApi
     {
         public Startup(IConfiguration configuration)
         {
+            LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
 

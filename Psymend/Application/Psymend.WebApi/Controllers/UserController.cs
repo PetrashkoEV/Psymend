@@ -14,7 +14,7 @@ namespace Psymend.WebApi.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        //private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UserController> _logger;
         private readonly IUserService _userService;
 
         public UserController(IUserService userService)
@@ -91,6 +91,7 @@ namespace Psymend.WebApi.Controllers
             }
             catch (ArgumentException e)
             {
+                _logger.LogError(e.Message, e);
                 return BadRequest(new {message = e.Message });
             }
 
