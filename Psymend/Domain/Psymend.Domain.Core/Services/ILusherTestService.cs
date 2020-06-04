@@ -4,6 +4,6 @@ namespace Psymend.Domain.Core.Services
 {
     public interface ILusherTestService
     {
-        void Start(List<List<int>> colorSet, int userId);
+        void ProcessData(List<List<int>> colorSet, int userId);
     }
 }

@@ -16,28 +16,27 @@ namespace Psymend.Domain.Services
             _lusherTestRepository = lusherTestRepository;
         }
 
-        public void Start(List<List<int>> colorSet, int userId)
+        public void ProcessData(List<List<int>> colorSet, int userId)
         {
             var entity = new LusherTestEntity
             {
                 UserId = userId,
                 CreateDate = DateTime.UtcNow,
-                LusherChoices = GetChoices(colorSet).ToList()
+                LusherChoices = colorSet.Select((set, setIndex) => 
+                        new LusherChoiceEntity
+                        {
+                            ChoiceNumber = setIndex,
+                            LusherChoices = set.Select((color, index) => 
+                                new LusherChoiceColorEntity
+                                {
+                                    Color = color,
+                                    Position = index
+                                })
+                                .ToList()
+                        })
+                    .ToList()
             };
             _lusherTestRepository.SaveLusherTest(entity);
-        }
-
-        private IEnumerable<LusherChoiceEntity> GetChoices(List<List<int>> colorSet)
-        {
-            return colorSet.Select((set, setIndex) => new LusherChoiceEntity()
-            {
-                ChoiceNumber = setIndex,
-                LusherChoices = set.Select((color, index) => new LusherChoiceColorEntity
-                {
-                    Color = color,
-                    Position = index
-                }).ToList()
-            });
         }
     }
 }

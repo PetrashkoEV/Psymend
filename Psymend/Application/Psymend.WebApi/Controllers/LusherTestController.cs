@@ -47,17 +47,17 @@ namespace Psymend.WebApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult CreateTest([FromBody]LusherTestModel model)
+        public IActionResult ProcessData([FromBody]LusherTestModel model)
         {
             if (model.ColorSet == null || model.ColorSet.Count != 2)
             {
-                return BadRequest(new { message = "The color set is not set. please send the correct request" });
+                return BadRequest(new { message = "The color set is not correct. Please send the correct request" });
             }
 
             try
             {
                 var userId = Convert.ToInt32(User.Identity.Name);
-                _service.Start(model.ColorSet, userId);
+                _service.ProcessData(model.ColorSet, userId);
             }
             catch (ArgumentException e)
             {
