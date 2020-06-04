@@ -10,6 +10,7 @@ namespace Psymend.Domain.Configuration
         {
             services.AddTransient<IAuthenticateService, AuthenticateService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ILusherTestService, LusherTestService>();
         }
     }
 }

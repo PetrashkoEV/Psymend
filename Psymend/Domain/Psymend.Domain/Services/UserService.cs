@@ -30,7 +30,7 @@ namespace Psymend.Domain.Services
             {
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
-                Password = new List<PasswordEntity>
+                Passwords = new List<PasswordEntity>
                 {
                     new PasswordEntity
                     {

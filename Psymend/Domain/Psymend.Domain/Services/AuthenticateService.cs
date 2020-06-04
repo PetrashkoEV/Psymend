@@ -26,7 +26,7 @@ namespace Psymend.Domain.Services
             return new AuthenticateUserModel
             {
                 UserId = userEntity.UserId,
-                Password = userEntity.Password.First().Password,
+                Password = userEntity.Passwords.First().Password,
                 FirstName = userEntity.FirstName,
                 Active = userEntity.Active,
                 Gender = userEntity.Gender,

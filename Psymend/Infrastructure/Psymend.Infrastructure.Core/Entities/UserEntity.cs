@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Psymend.Infrastructure.Core.Entities.LusherTest;
 
 namespace Psymend.Infrastructure.Core.Entities
 {
@@ -13,6 +14,7 @@ namespace Psymend.Infrastructure.Core.Entities
         public string RoleName { get; set; }
         public bool Active { get; set; }
 
-        public List<PasswordEntity> Password { get; set; }
+        public List<PasswordEntity> Passwords { get; set; }
+        public List<LusherTestEntity> LusherTests { get; set; }
     }
 }

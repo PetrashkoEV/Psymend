@@ -19,10 +19,10 @@ namespace Psymend.Infrastructure.Repositories
         public UserEntity GetUserByEmailAndPassword(string email, string password)
         {
             return Context.Users
-                .Include(x => x.Password)
+                .Include(x => x.Passwords)
                 .FirstOrDefault(item => 
                     item.Email.Equals(email) && 
-                    item.Password.Any(p => p.Password.Equals(password)));
+                    item.Passwords.Any(p => p.Password.Equals(password)));
         }
 
         public void CreateUser(UserEntity entity)

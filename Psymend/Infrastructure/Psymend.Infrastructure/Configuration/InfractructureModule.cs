@@ -13,6 +13,7 @@ namespace Psymend.Infrastructure.Configuration
             services.AddSingleton<ISqlConnectionStringProvider, SqlConnectionStringProvider>();
 
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ILusherTestRepository, LusherTestRepository>();
         }
     }
 }

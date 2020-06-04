@@ -11,7 +11,7 @@ namespace Psymend.Infrastructure.EntityTypeConfigurations
             builder.ToTable("password").HasKey(p => p.PasswordId);
 
             builder.HasOne(p => p.User)
-                .WithMany(u => u.Password)
+                .WithMany(u => u.Passwords)
                 .HasForeignKey(i => i.UserId);
         }
     }
