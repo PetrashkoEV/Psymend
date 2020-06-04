@@ -20,6 +20,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore Psymend/Psymend.sln
     - name: Build
-      run: dotnet build Psymend/Psymend.sln --configuration Release --no-restore
+      run: dotnet build Psymend/Psymend.sln --configuration Release
     - name: Test
       run: dotnet test Psymend/Psymend.sln --no-restore --verbosity normal
