@@ -51,7 +51,7 @@ namespace Psymend.WebApi.Authenticate
                     new Claim(ClaimTypes.Name, model.Id.ToString()),
                     new Claim(ClaimTypes.Role, model.Role)
                 }),
-                Expires = DateTime.UtcNow.AddDays(KeyLifetimeInDays),
+                Expires = DateTime.UtcNow.AddMonths(KeyLifetimeInDays),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
