@@ -22,6 +22,7 @@ namespace Psymend.Infrastructure.Context
 
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new PasswordEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new TestEntityTypeConfiguration());
 
             modelBuilder.ApplyConfiguration(new LusherTestEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new LusherResultEntityTypeConfiguration());
@@ -32,6 +33,7 @@ namespace Psymend.Infrastructure.Context
 
         public virtual DbSet<UserEntity> Users { get; set; }
         public virtual DbSet<PasswordEntity> Passwords { get; set; }
+        public virtual DbSet<TestEntity> Tests { get; set; }
 
         public virtual DbSet<LusherTestEntity> LusherTests { get; set; }
         public virtual DbSet<LusherResultEntity> LusherResults { get; set; }

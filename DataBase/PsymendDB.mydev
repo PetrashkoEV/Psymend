@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), the Project File -->
+<!-- Modifying this generated file will probably render it invalid -->
+<DatabaseProject Version="1.0.1" Guid="6c8330bd-8f66-4abb-93b9-f212edc67f8b">
+  <Provider Guid="59f90733-4d68-4fdf-82a7-f0fcbf5460aa" />
+  <Configurations Active="Default">
+    <Configuration Name="Default" CheckReferences="True" IgnoreErrors="False" OutputPath="" Target="" OutputType="SingleFile" KeepOriginalObjects="True" RecreateObjects="False" RecreateDatabase="False" ServerVersion="5.7.29" Database="psymend" UseRegions="False" FullPaths="False" Definer="CURRENT_USER" ScriptDelimiter="$$" StorageEngine="INNODB" Collation="utf8mb4_general_ci" ConvertToLowercase="True" DefinerEffect="Keep" InnoDbDefaultRowFormat="dynamic">
+      <Connection Name="prod" Category="97d28b16-2c45-4ff7-8a1c-5e257e1fcf82" ConnectionString="User Id=admin;Host=ec2-3-23-112-122.us-east-2.compute.amazonaws.com;Database=psymend;Character Set=utf8" />
+      <Build />
+    </Configuration>
+  </Configurations>
+</DatabaseProject>

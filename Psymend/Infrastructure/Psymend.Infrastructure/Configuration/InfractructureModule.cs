@@ -15,6 +15,7 @@ namespace Psymend.Infrastructure.Configuration
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<ILusherTestRepository, LusherTestRepository>();
             services.AddTransient<ILusherInterpretationRepository, LusherInterpretationRepository>();
+            services.AddTransient<ITestRepository, TestRepository>();
         }
     }
 }

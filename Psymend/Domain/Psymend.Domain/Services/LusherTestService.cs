@@ -4,8 +4,10 @@ using System.Linq;
 using Psymend.Core.Enums;
 using Psymend.Core.Models;
 using Psymend.Domain.Core.Models;
+using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
 using Psymend.Domain.Test.Lusher.Core.Services;
+using Psymend.Infrastructure.Core.Entities;
 using Psymend.Infrastructure.Core.Entities.LusherTest;
 using Psymend.Infrastructure.Core.Repositories;
 
@@ -15,15 +17,18 @@ namespace Psymend.Domain.Services
     {
         private readonly ITestLusherProcessor _processor;
         private readonly ILusherTestRepository _lusherTestRepository;
+        private readonly ITestRepository _testRepository;
         private readonly ILusherInterpretationRepository _interpretationRepository;
 
         public LusherTestService(
             ITestLusherProcessor processor,
             ILusherTestRepository lusherTestRepository,
+            ITestRepository testRepository,
             ILusherInterpretationRepository interpretationRepository)
         {
             _processor = processor;
             _lusherTestRepository = lusherTestRepository;
+            _testRepository = testRepository;
             _interpretationRepository = interpretationRepository;
         }
 
@@ -57,9 +62,8 @@ namespace Psymend.Domain.Services
 
         private int SaveTestData(LusherTestResult result, int userId)
         {
-            var entity = new LusherTestEntity
+            var lusherTest = new LusherTestEntity
             {
-                UserId = userId,
                 CreateDate = DateTime.UtcNow,
                 Intensity = result.Intensity,
                 LusherChoices = result.ColorSet.Select((set, setIndex) =>
@@ -91,9 +95,18 @@ namespace Psymend.Domain.Services
                         })
                     .ToList()
             };
-            _lusherTestRepository.SaveLusherTest(entity);
 
-            return entity.LusherTestId;
+            var entity = new TestEntity
+            {
+                CreateDate = DateTime.UtcNow,
+                TestType = TestType.Lusher.ToString(),
+                UserId = userId,
+                LusherTest = lusherTest
+            };
+
+            _testRepository.SaveTest(entity);
+
+            return lusherTest.LusherTestId;
         }
 
         private int GetInterpretationKey(LusherResultGroup result)

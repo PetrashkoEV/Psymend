@@ -15,19 +15,14 @@ namespace Psymend.Infrastructure.Repositories
             Context = new PsymendBaseSqlContext(connectionStringProvider);
         }
 
-        public void SaveLusherTest(LusherTestEntity entity)
-        {
-            Context.LusherTests.Add(entity);
-            Context.SaveChanges();
-        }
-
         public LusherTestEntity GetTestResult(int testId, int userId)
         {
             return Context
                 .LusherTests
+                .Include(item => item.Tests)
                 .Include(item => item.LusherResults)
                     .ThenInclude(t => t.LusherInterpretation)
-                .FirstOrDefault(item => item.LusherTestId == testId && item.UserId == userId);
+                .FirstOrDefault(item => item.LusherTestId == testId && item.Tests.FirstOrDefault().UserId == userId);
         }
     }
 }

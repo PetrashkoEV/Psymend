@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), compare document file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<CompareDocument>
+  <Properties>
+    <DatabaseProvider>59f90733-4d68-4fdf-82a7-f0fcbf5460aa</DatabaseProvider>
+    <ProviderVersion>6.1.1373.0</ProviderVersion>
+    <SchemaVersion>1.5</SchemaVersion>
+  </Properties>
+  <Source Type="Database">
+    <DataConnection>MySQL80</DataConnection>
+    <ConnectionString>User Id=root;Host=localhost;Character Set=compatibility</ConnectionString>
+    <Category>00000000-0000-0000-0000-000000000000</Category>
+    <Schema>psymend</Schema>
+  </Source>
+  <Target Type="Database">
+    <DataConnection>prod</DataConnection>
+    <ConnectionString>User Id=admin;Host=ec2-3-23-112-122.us-east-2.compute.amazonaws.com;Database=psymend;Character Set=utf8</ConnectionString>
+    <Category>97d28b16-2c45-4ff7-8a1c-5e257e1fcf82</Category>
+    <Schema>psymend</Schema>
+  </Target>
+  <GroupType Value="Status" />
+  <Filter Value="0" />
+  <ComparisonOptions>
+    <IgnorePermissions>false</IgnorePermissions>
+    <DisableDependencyAnalysis>false</DisableDependencyAnalysis>
+    <IgnoreConstraintsNames>false</IgnoreConstraintsNames>
+    <IgnoreColumnOrderInIndexes>false</IgnoreColumnOrderInIndexes>
+    <IgnoreForeignKeys>false</IgnoreForeignKeys>
+    <QuoteObjectNames>false</QuoteObjectNames>
+    <IgnoreSynonymForFunctions>true</IgnoreSynonymForFunctions>
+    <IgnoreCommentsOptions>false</IgnoreCommentsOptions>
+    <IgnoreWhiteSpace>false</IgnoreWhiteSpace>
+    <ForceColumnOrder>true</ForceColumnOrder>
+    <CountColumnsToDropUK>true</CountColumnsToDropUK>
+    <MappingIgnoreSpaces>false</MappingIgnoreSpaces>
+    <MappingIgnoreCase>false</MappingIgnoreCase>
+    <MappingSimilar>false</MappingSimilar>
+    <MappingSimilarPercent xml:space="preserve">80</MappingSimilarPercent>
+    <IgnoreParserErrors>false</IgnoreParserErrors>
+    <IgnoreCase>false</IgnoreCase>
+    <IgnoreComments>false</IgnoreComments>
+    <IgnoreDataTypesInColumn>false</IgnoreDataTypesInColumn>
+    <ListIndividualHashPartitions>true</ListIndividualHashPartitions>
+    <IgnoreDefiner>true</IgnoreDefiner>
+    <IgnoreAutoIncrement>true</IgnoreAutoIncrement>
+    <IgnoreAvgRowLength>true</IgnoreAvgRowLength>
+    <IgnoreColumnDefaultValues>false</IgnoreColumnDefaultValues>
+    <IgnoreTableEngine>false</IgnoreTableEngine>
+    <IgnoreStartsClause>false</IgnoreStartsClause>
+    <IgnoreEndsClause>false</IgnoreEndsClause>
+    <IgnoreCollations>false</IgnoreCollations>
+    <IgnoreCheckConstraints>false</IgnoreCheckConstraints>
+    <IgnoreTableDMLTriggers>false</IgnoreTableDMLTriggers>
+    <IgnoreTriggerFireOrder>false</IgnoreTriggerFireOrder>
+    <IgnoreIndexes>false</IgnoreIndexes>
+    <IgnoreIndexesNames>false</IgnoreIndexesNames>
+    <IgnoreFullTextIndexes>false</IgnoreFullTextIndexes>
+    <IgnoreSpatialIndexes>false</IgnoreSpatialIndexes>
+    <IgnoreForeignKeyActions>false</IgnoreForeignKeyActions>
+    <IgnorePrimaryKeys>false</IgnorePrimaryKeys>
+    <SkipEmptyCharset>false</SkipEmptyCharset>
+    <IgnoreNotNullConstraints>false</IgnoreNotNullConstraints>
+    <IgnorePartitions>false</IgnorePartitions>
+    <IgnoreDropIndexes>false</IgnoreDropIndexes>
+    <IgnoreDropTriggers>false</IgnoreDropTriggers>
+    <CheckInconsistency>false</CheckInconsistency>
+    <SetDelimiter>true</SetDelimiter>
+    <UseDelimiter>true</UseDelimiter>
+    <TargetDatabaseName xml:space="preserve">psymend</TargetDatabaseName>
+    <TargetChangeTracking>false</TargetChangeTracking>
+    <IsTarget>false</IsTarget>
+    <OmitIgnoreOptions>false</OmitIgnoreOptions>
+    <IncludeFilesAndFilegroups>false</IncludeFilesAndFilegroups>
+    <IgnoreMemoryOptimizedProperty>false</IgnoreMemoryOptimizedProperty>
+    <IncludeSetNoExec>true</IncludeSetNoExec>
+    <CompareServerObjects>false</CompareServerObjects>
+    <IgnoreObjectTypeFilter>false</IgnoreObjectTypeFilter>
+  </ComparisonOptions>
+  <ObjectFilter>
+    <Include>Table</Include>
+    <Include>View</Include>
+    <Include>Procedure</Include>
+    <Include>Function</Include>
+    <Include>Event</Include>
+  </ObjectFilter>
+  <ModifiedObjects />
+  <SynchronizationOptions>
+    <PropertyValue Name="ExcludeComments">false</PropertyValue>
+    <PropertyValue Name="IncludeUseDatabase">true</PropertyValue>
+    <PropertyValue Name="IncludePrintComments">false</PropertyValue>
+    <PropertyValue Name="CreateBackupFolder">true</PropertyValue>
+    <PropertyValue Name="BackupPathName" xml:space="preserve" />
+    <PropertyValue Name="BackupExtension">false</PropertyValue>
+    <PropertyValue Name="BackupExtensionName" xml:space="preserve">.bak</PropertyValue>
+    <PropertyValue Name="ExecuteAsSingleTransaction">true</PropertyValue>
+    <PropertyValue Name="GenerateScriptHeader">true</PropertyValue>
+    <PropertyValue Name="UseCommitMode">false</PropertyValue>
+    <PropertyValue Name="UseSchemaNamePrefix">false</PropertyValue>
+    <PropertyValue Name="UseSqlExtensionCommands">true</PropertyValue>
+    <PropertyValue Name="AllowDefaultValues">false</PropertyValue>
+    <PropertyValue Name="UseUnicode">false</PropertyValue>
+    <PropertyValue Name="CompareUniqueness">false</PropertyValue>
+    <PropertyValue Name="UsePrecedesTrigger">false</PropertyValue>
+    <PropertyValue Name="CheckObjectExistence">false</PropertyValue>
+    <PropertyValue Name="DropCreateOnly">false</PropertyValue>
+    <PropertyValue Name="DropCreateOnlyTables">false</PropertyValue>
+    <PropertyValue Name="ExcludeDependencies">false</PropertyValue>
+    <PropertyValue Name="CanSqlExecutorAddError">true</PropertyValue>
+    <PropertyValue Name="SynchronizeType">2</PropertyValue>
+    <PropertyValue Name="SynchronizationFileName" xml:space="preserve" />
+    <PropertyValue Name="SynchronizationEditorFileName" xml:space="preserve" />
+    <PropertyValue Name="OpenScriptInEditor">false</PropertyValue>
+    <PropertyValue Name="RefreshAfterSynchronization">false</PropertyValue>
+    <PropertyValue Name="OpenScriptsFolder">false</PropertyValue>
+    <PropertyValue Name="PureScript">false</PropertyValue>
+    <PropertyValue Name="IsPartOfScript">false</PropertyValue>
+    <PropertyValue Name="IgnoreEncryptionProperty">false</PropertyValue>
+    <PropertyValue Name="CommitPageLength" xml:space="preserve">0</PropertyValue>
+  </SynchronizationOptions>
+  <Mapping />
+</CompareDocument>
