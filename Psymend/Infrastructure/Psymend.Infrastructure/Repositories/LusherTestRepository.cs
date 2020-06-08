@@ -1,4 +1,6 @@
-﻿using Psymend.Infrastructure.Context;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Psymend.Infrastructure.Context;
 using Psymend.Infrastructure.Core;
 using Psymend.Infrastructure.Core.Configuration;
 using Psymend.Infrastructure.Core.Entities.LusherTest;
@@ -17,6 +19,15 @@ namespace Psymend.Infrastructure.Repositories
         {
             Context.LusherTests.Add(entity);
             Context.SaveChanges();
+        }
+
+        public LusherTestEntity GetTestResult(int testId, int userId)
+        {
+            return Context
+                .LusherTests
+                .Include(item => item.LusherResults)
+                    .ThenInclude(t => t.LusherInterpretation)
+                .FirstOrDefault(item => item.LusherTestId == testId && item.UserId == userId);
         }
     }
 }

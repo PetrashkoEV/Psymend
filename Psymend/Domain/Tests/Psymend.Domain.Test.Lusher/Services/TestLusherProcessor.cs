@@ -12,9 +12,10 @@ namespace Psymend.Domain.Test.Lusher.Services
         private readonly List<int> _basicColors = new List<int> { 1, 2, 3, 4 };
         private readonly List<int> _compensationColors = new List<int> { 6,7,8 };
 
-        public void ProcessData(LusherTest test)
+        public LusherTestResult ProcessData(LusherTest test)
         {
             ColorComparison(test.FirstChoice, test.SecondChoice);
+            return ResultsPreparation(test);
         }
 
         private void ColorComparison(List<LusherChoice> firstChoice, List<LusherChoice> secondChoice)
@@ -125,9 +126,33 @@ namespace Psymend.Domain.Test.Lusher.Services
             }
         }
 
-        private void ResultsPreparation(LusherTest test)
+        private static LusherTestResult ResultsPreparation(LusherTest test)
         {
+            var result = new LusherTestResult()
+            {
+                Intensity = test.FirstChoice.Sum(item => item.Intensity) + test.SecondChoice.Sum(item => item.Intensity),
+                ColorSet = new List<List<LusherChoice>>
+                {
+                    test.FirstChoice,
+                    test.SecondChoice
+                },
+                Groups = new List<LusherResultGroup>()
+            };
 
+            for (var i = 0; i < test.FirstChoice.Count; i++)
+            {
+                result.Groups.Add(new LusherResultGroup
+                {
+                    FirstAnxiety = test.FirstChoice[i].Anxiety,
+                    FirstColor = test.FirstChoice[i].Color,
+                    SecondAnxiety = test.SecondChoice[i].Anxiety,
+                    SecondGroup = test.SecondChoice[i].Group,
+                    SecondColor = test.SecondChoice[i].Color,
+                    Position = i
+                });
+            }
+
+            return result;
         }
     }
 }

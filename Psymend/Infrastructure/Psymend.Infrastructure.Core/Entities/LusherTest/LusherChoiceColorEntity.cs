@@ -6,7 +6,7 @@
         public int LusherChoiceId { get; set; }
         public int Color { get; set; }
         public string Group { get; set; }
-        public int Anxiety { get; set; }
+        public bool Anxiety { get; set; }
         public int Intensity { get; set; }
         public int Position { get; set; }
 

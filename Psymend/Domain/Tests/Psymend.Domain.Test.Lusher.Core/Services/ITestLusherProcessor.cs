@@ -4,6 +4,6 @@ namespace Psymend.Domain.Test.Lusher.Core.Services
 {
     public interface ITestLusherProcessor
     {
-        void ProcessData(LusherTest test);
+        LusherTestResult ProcessData(LusherTest test);
     }
 }

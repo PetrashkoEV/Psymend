@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Psymend.Domain.Core.Models;
 using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
 using Psymend.WebApi.Model;
@@ -36,7 +37,8 @@ namespace Psymend.WebApi.Controllers
                 return BadRequest(new { message = "Please specify the correct testId" });
             }
 
-            var model = new { };
+            var userId = Convert.ToInt32(User.Identity.Name);
+            var model = _service.GetLusherTestResultById(testId, userId);
 
             if (model == null)
             {
@@ -57,10 +59,11 @@ namespace Psymend.WebApi.Controllers
                 return BadRequest(new { message = "The color set is not correct. Please send the correct request" });
             }
 
+            LusherTestResultModel result;
             try
             {
                 var userId = Convert.ToInt32(User.Identity.Name);
-                _service.ProcessData(model.ColorSet, userId);
+                result = _service.ProcessData(model.ColorSet, userId);
             }
             catch (ArgumentException e)
             {
@@ -68,7 +71,7 @@ namespace Psymend.WebApi.Controllers
                 return BadRequest(new {message = e.Message });
             }
 
-            return Ok(model);
+            return Ok(result);
         }
     }
 }

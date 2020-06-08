@@ -27,6 +27,7 @@ namespace Psymend.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new LusherResultEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new LusherChoiceEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new LusherChoiceColorEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new LusherInterpretationEntityTypeConfiguration());
         }
 
         public virtual DbSet<UserEntity> Users { get; set; }
@@ -36,5 +37,6 @@ namespace Psymend.Infrastructure.Context
         public virtual DbSet<LusherResultEntity> LusherResults { get; set; }
         public virtual DbSet<LusherChoiceEntity> LusherChoices { get; set; }
         public virtual DbSet<LusherChoiceColorEntity> LusherChoiceColors { get; set; }
+        public virtual DbSet<LusherInterpretationEntity> LusherInterpretations { get; set; }
     }
 }

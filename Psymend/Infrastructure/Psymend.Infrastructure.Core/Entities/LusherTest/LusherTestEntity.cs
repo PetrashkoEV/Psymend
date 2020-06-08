@@ -8,9 +8,10 @@ namespace Psymend.Infrastructure.Core.Entities.LusherTest
         public int LusherTestId { get; set; }
         public int UserId { get; set; }
         public DateTime CreateDate { get; set; }
+        public int Intensity { get; set; }
 
         public List<LusherChoiceEntity> LusherChoices { get; set; }
-        public LusherResultEntity LusherResult { get; set; }
+        public List<LusherResultEntity> LusherResults { get; set; }
         public UserEntity User { get; set; }
     }
 }

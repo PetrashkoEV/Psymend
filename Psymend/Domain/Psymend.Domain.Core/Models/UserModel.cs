@@ -1,6 +1,4 @@
-﻿using Psymend.Domain.Core.Models.Enums;
-
-namespace Psymend.Domain.Core.Models
+﻿namespace Psymend.Domain.Core.Models
 {
     public class UserModel
     {
