@@ -40,12 +40,10 @@ namespace Psymend.Domain.Test.Lusher.Services
                     anxiety = true;
                     currentGroupType = GroupType.Negative;
                     secondChoice[i].Anxiety = true;
-                    firstChoice[i].Anxiety = true;
                 }
 
                 secondChoice[i].Group = currentGroupType;
 
-                SetIntensity(firstChoice[i], i);
                 SetIntensity(secondChoice[i], i);
 
                 previousFirstChoiceElement = firstChoice[i];
@@ -143,7 +141,6 @@ namespace Psymend.Domain.Test.Lusher.Services
             {
                 result.Groups.Add(new LusherResultGroup
                 {
-                    FirstAnxiety = test.FirstChoice[i].Anxiety,
                     FirstColor = test.FirstChoice[i].Color,
                     SecondAnxiety = test.SecondChoice[i].Anxiety,
                     SecondGroup = test.SecondChoice[i].Group,

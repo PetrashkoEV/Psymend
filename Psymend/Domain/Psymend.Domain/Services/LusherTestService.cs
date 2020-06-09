@@ -85,11 +85,10 @@ namespace Psymend.Domain.Services
                 LusherResults = result.Groups.Select((resultGroup, groupIndex) =>
                         new LusherResultEntity
                         {
-                            FirstAnxiety = resultGroup.FirstAnxiety,
                             FirstColor = resultGroup.FirstColor,
-                            SecondGroup = resultGroup.SecondGroup.ToString(),
-                            SecondAnxiety = resultGroup.SecondAnxiety,
                             SecondColor = resultGroup.SecondColor,
+                            Group = resultGroup.SecondGroup.ToString(),
+                            Anxiety = resultGroup.SecondAnxiety,
                             Position = groupIndex,
                             LusherInterpretationId = GetInterpretationKey(resultGroup)
                         })
@@ -111,16 +110,7 @@ namespace Psymend.Domain.Services
 
         private int GetInterpretationKey(LusherResultGroup result)
         {
-            var key = result.FirstAnxiety ? "a" : "";
-
-            if (result.SecondAnxiety)
-            {
-                key += "a";
-            }
-            else
-            {
-                key += "";
-            }
+            var key = result.SecondAnxiety ? "a" : "";
 
             key += $"{result.SecondGroup.ToAbbreviation()}{result.SecondColor}{result.SecondGroup.ToAbbreviation()}{result.FirstColor}";
             var entity = _interpretationRepository.GetInterpretationByKey(key);

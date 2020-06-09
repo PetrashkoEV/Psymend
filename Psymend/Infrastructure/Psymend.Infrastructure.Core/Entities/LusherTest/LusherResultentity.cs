@@ -5,11 +5,10 @@
         public int LusherResultId { get; set; }
         public int LusherTestId { get; set; }
         public int LusherInterpretationId { get; set; }
-        public bool FirstAnxiety { get; set; }
         public int FirstColor { get; set; }
-        public string SecondGroup { get; set; }
-        public bool SecondAnxiety { get; set; }
         public int SecondColor { get; set; }
+        public string Group { get; set; }
+        public bool Anxiety { get; set; }
         public int Position { get; set; }
 
         public LusherTestEntity LusherTest { get; set; }
