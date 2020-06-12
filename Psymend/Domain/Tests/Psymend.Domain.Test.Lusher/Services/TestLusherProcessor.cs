@@ -89,6 +89,11 @@ namespace Psymend.Domain.Test.Lusher.Services
                     previousSecondChoiceElement.Group = GroupType.Negative; // overwrite the previous value
                     return GroupType.Negative;
                 }
+
+                if (index == 7)
+                {
+                    return GroupType.Negative;
+                }
             }
 
             if (index == 8)
