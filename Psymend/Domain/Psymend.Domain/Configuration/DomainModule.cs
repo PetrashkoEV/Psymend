@@ -12,6 +12,7 @@ namespace Psymend.Domain.Configuration
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ILusherTestService, LusherTestService>();
             services.AddTransient<ITestService, TestService>();
+            services.AddTransient<IPsychoBioTestService, PsychoBioTestService>();
         }
     }
 }

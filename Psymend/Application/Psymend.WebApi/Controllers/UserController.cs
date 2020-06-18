@@ -23,6 +23,7 @@ namespace Psymend.WebApi.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = Role.Client)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get()

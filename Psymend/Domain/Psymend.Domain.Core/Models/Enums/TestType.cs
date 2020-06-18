@@ -2,6 +2,7 @@
 {
     public enum TestType
     {
-        Lusher
+        Lusher,
+        PsychoBio
     }
 }

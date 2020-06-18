@@ -27,7 +27,7 @@ namespace Psymend.WebApi.Controllers
         }
 
         [HttpGet("{testId}")]
-        [Authorize(Roles = Role.Admin)]
+        [Authorize(Roles = Role.Client)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(int testId)
@@ -48,8 +48,8 @@ namespace Psymend.WebApi.Controllers
             return Ok(model);
         }
 
-        [AllowAnonymous]
         [HttpPost]
+        [Authorize(Roles = Role.Client)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult ProcessData([FromBody]LusherTestModel model)
