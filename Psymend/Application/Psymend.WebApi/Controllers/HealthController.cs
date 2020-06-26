@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Psymend.WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/health")]
     public class HealthController : ControllerBase
@@ -14,6 +16,7 @@ namespace Psymend.WebApi.Controllers
             _logger = logger;
         }
 
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult Health()
         {

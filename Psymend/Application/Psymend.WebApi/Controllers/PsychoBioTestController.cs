@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Psymend.Domain.Core.Models;
 using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
 using Psymend.WebApi.Model;
+using PsychoBioTestAnswerResultModel = Psymend.Domain.Core.Models.PsychoBioTestAnswerResultModel;
 
 namespace Psymend.WebApi.Controllers
 {
@@ -26,7 +30,6 @@ namespace Psymend.WebApi.Controllers
         }
 
         [HttpGet("{testId}")]
-        [Authorize(Roles = Role.Client)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(int testId)
@@ -64,9 +67,82 @@ namespace Psymend.WebApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult ProcessData([FromBody] PsychoBioTestModel model)
+        public IActionResult ProcessData([FromBody] List<PsychoBioTestResponseToQuestionModel> results)
         {
-            return Ok();
+            var errorMessage = ValidateTestData(results);
+
+            if (!string.IsNullOrEmpty(errorMessage))
+            {
+                return BadRequest(new { message = errorMessage });
+            }
+
+            var userId = Convert.ToInt32(User.Identity.Name);
+            var testData = results.Select(item => new PsychoBioTestAnswerResponseModel
+            {
+                QuestionNumber = item.QuestionNumber,
+                Answers = item.Answers.Select(answer => new PsychoBioTestAnswerResultModel
+                {
+                    CustomText = answer.CustomText,
+                    AnswerNumber = answer.Number
+                }).ToList()
+            }).ToList();
+
+            var result = _service.ProcessTestData(testData, userId);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+        private string ValidateTestData(IReadOnlyCollection<PsychoBioTestResponseToQuestionModel> response)
+        {
+            if (response == null)
+            {
+                return "The result model is empty";
+            }
+
+            var questions = _service.GetQuestions();
+
+            if (response.Count != questions.Count)
+            {
+                return "The result model is empty";
+            }
+
+            foreach (var result in response)
+            {
+                var question = questions.FirstOrDefault(item => item.QuestionNumber == result.QuestionNumber);
+
+                if (question == null)
+                {
+                    return $"The '{result.QuestionNumber}' result was not found in the list of questions.";
+                }
+
+                if (result.Answers.Count == 0)
+                {
+                    return $"The answer to the '{question.QuestionNumber}' question was not selected";
+                }
+
+                if (!question.AllowMultipleSelections && result.Answers.Count != 1)
+                {
+                    return $"The wrong number of answers was selected for the '{question.QuestionNumber}' question";
+                }
+
+                foreach (var userAnswer in result.Answers)
+                {
+                    var answer = question.Answers.FirstOrDefault(item => item.Number == userAnswer.Number);
+
+                    if (answer == null)
+                    {
+                        return $"The '{userAnswer.Number}' answer was not found in the answer list for '{question.QuestionNumber}' question.";
+                    }
+                }
+                
+            }
+
+            return string.Empty;
         }
     }
 }

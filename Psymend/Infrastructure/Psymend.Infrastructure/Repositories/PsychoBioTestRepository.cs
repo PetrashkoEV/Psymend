@@ -22,5 +22,45 @@ namespace Psymend.Infrastructure.Repositories
                 .Include(item => item.AnswerDefinitions)
                 .ToList();
         }
+
+        public PsychoBioTestAnswerDefinitionEntity GetAnswerDefinition(int questionNumber, int answerNumber)
+        {
+            return Context.PsychoBioTestAnswerDefinitions
+                .Include(item => item.Question)
+                .FirstOrDefault(item => item.Number == answerNumber && item.Question.QuestionNumber == questionNumber);
+        }
+
+        public PsychoBioTestEntity GetTestResult(int testId, int userId)
+        {
+            var testEntity = Context
+                .PsychoBioTests
+                .Include(test => test.Tests)
+                .Include(test => test.AnswerResponses)
+                    .ThenInclude(answer => answer.PsychoBioTestAnswerDefinition)
+                        .ThenInclude(answerDefinition => answerDefinition.Question)
+                .Include(test => test.PsychoBioResult)
+                .FirstOrDefault(item => item.PsychobioTestId == testId && item.Tests.FirstOrDefault().UserId == userId);
+
+            if (testEntity == null)
+                return null;
+
+            var resultEntity = Context
+                .PsychoBioResults
+                .Include(item => item.Disadaptation)
+                .Include(item => item.Anxiety)
+                .Include(item => item.Frustration)
+                .Include(item => item.GeneralCondition)
+                .FirstOrDefault(item => item.PsychobioResultId == testEntity.PsychoBioResult.PsychobioResultId);
+
+            if (resultEntity == null) 
+                return testEntity;
+
+            testEntity.PsychoBioResult.Disadaptation = resultEntity.Disadaptation;
+            testEntity.PsychoBioResult.Anxiety = resultEntity.Anxiety;
+            testEntity.PsychoBioResult.Frustration = resultEntity.Frustration;
+            testEntity.PsychoBioResult.GeneralCondition = resultEntity.GeneralCondition;
+
+            return testEntity;
+        }
     }
 }

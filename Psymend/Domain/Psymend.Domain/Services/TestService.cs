@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Dynamic;
 using System.Linq;
 using Psymend.Domain.Core.Models;
+using Psymend.Domain.Core.Models.Enums;
 using Psymend.Domain.Core.Services;
+using Psymend.Infrastructure.Core.Entities;
 using Psymend.Infrastructure.Core.Repositories;
 
 namespace Psymend.Domain.Services
@@ -26,9 +29,24 @@ namespace Psymend.Domain.Services
                 {
                     Type = item.TestType,
                     CreateDate = item.CreateDate,
-                    Uri = new Uri(uri, $"test/{item.TestType.ToLower()}/{item.LusherTestId}").AbsoluteUri
+                    Uri = new Uri(uri, $"test/{item.TestType.ToLower()}/{GetTestId(item)}").AbsoluteUri
                 }).ToList()
             };
+        }
+
+        private int? GetTestId(TestEntity item)
+        {
+            if (item.TestType == TestType.Lusher.ToString())
+            {
+                return item.LusherTestId.Value;
+            }
+
+            if (item.TestType == TestType.PsychoBio.ToString())
+            {
+                return item.PsychobioTestId.Value;
+            }
+
+            return null;
         }
     }
 }

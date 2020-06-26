@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\Psymend.Domain\Psymend.Domain.csproj" />
     <ProjectReference Include="..\..\Domain\Tests\Psymend.Domain.Test.Lusher\Psymend.Domain.Test.Lusher.csproj" />
+    <ProjectReference Include="..\..\Domain\Tests\Psymend.Domain.Test.PsychoBio\Psymend.Domain.Test.PsychoBio.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Psymend.Infrastructure\Psymend.Infrastructure.csproj" />
   </ItemGroup>
 

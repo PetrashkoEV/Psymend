@@ -17,6 +17,10 @@ namespace Psymend.Infrastructure.EntityTypeConfigurations
             builder.HasOne(p => p.LusherTest)
                 .WithMany(u => u.Tests)
                 .HasForeignKey(i => i.LusherTestId);
+            
+            builder.HasOne(p => p.PsychoBioTest)
+                .WithMany(u => u.Tests)
+                .HasForeignKey(i => i.PsychobioTestId);
         }
     }
 }

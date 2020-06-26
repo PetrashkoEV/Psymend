@@ -34,6 +34,10 @@ namespace Psymend.Infrastructure.Context
 
             modelBuilder.ApplyConfiguration(new PsychoBioTestQuestionEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new PsychoBioTestAnswerDefinitionEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PsychoBioTestAnswerResponseEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PsychoBioResultEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PsychoBioTestEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PsychobioTestSummaryDescriptionEntityTypeConfiguration());
         }
 
         public virtual DbSet<UserEntity> Users { get; set; }
@@ -48,5 +52,9 @@ namespace Psymend.Infrastructure.Context
 
         public virtual DbSet<PsychoBioTestAnswerDefinitionEntity> PsychoBioTestAnswerDefinitions { get; set; }
         public virtual DbSet<PsychoBioTestQuestionEntity> PsychoBioTestQuestions { get; set; }
+        public virtual DbSet<PsychoBioResultEntity> PsychoBioResults { get; set; }
+        public virtual DbSet<PsychoBioTestEntity> PsychoBioTests { get; set; }
+        public virtual DbSet<PsychobioTestSummaryDescriptionEntity> PsychoBioTestSummaryDescriptions { get; set; }
+        public virtual DbSet<PsychoBioTestAnswerResponseEntity> PsychoBioTestAnswerResponses { get; set; }
     }
 }

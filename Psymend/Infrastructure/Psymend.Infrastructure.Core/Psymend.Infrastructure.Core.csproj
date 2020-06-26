@@ -5,4 +5,8 @@
     <RootNamespace>Psymend.Infrastructure.Core</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\Psymend.Core\Psymend.Core.csproj" />
+  </ItemGroup>
+
 </Project>

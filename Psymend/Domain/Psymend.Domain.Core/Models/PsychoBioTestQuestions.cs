@@ -4,8 +4,9 @@ namespace Psymend.Domain.Core.Models
 {
     public class PsychoBioTestQuestion
     {
-        public int Position { get; set; }
+        public int QuestionNumber { get; set; }
         public string Question { get; set; }
+        public bool AllowMultipleSelections { get; set; }
         public List<PsychoBioTestAnswerDefinitionModel> Answers { get; set; }
     }
 }
