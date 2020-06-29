@@ -53,7 +53,7 @@ namespace Psymend.Domain.Services
             var entity = MapEntity(result, testResponse, userId);
             _testRepository.SaveTest(entity);
 
-            return GetTestResultById(entity.TestId, userId);
+            return entity.PsychobioTestId.HasValue ? GetTestResultById(entity.PsychobioTestId.Value, userId) : null;
         }
 
         public List<PsychoBioTestQuestion> GetQuestions()
@@ -99,7 +99,7 @@ namespace Psymend.Domain.Services
         private List<PsychoBioTestAnswerResponseEntity> MapToAnswerResponses(IEnumerable<PsychoBioTestAnswerResponseModel> testResponse)
         {
             var questions = _repository.GetQuestions();
-            var entites = new List<PsychoBioTestAnswerResponseEntity>();
+            var entities = new List<PsychoBioTestAnswerResponseEntity>();
 
             foreach (var response in testResponse)
             {
@@ -110,20 +110,20 @@ namespace Psymend.Domain.Services
                     break;
                 }
 
-                foreach (var answer in response.Answers)
+                var answerResponseEntities = response.Answers.Select(answerResultModel =>
                 {
-                    var answerDefinition = question.AnswerDefinitions.FirstOrDefault(a => a.Number == answer.AnswerNumber);
-                    var entity = new PsychoBioTestAnswerResponseEntity
+                    var answerDefinition = question.AnswerDefinitions.First(definition => definition.Number == answerResultModel.AnswerNumber);
+                    return new PsychoBioTestAnswerResponseEntity
                     {
                         PsychoBioTestAnswerDefinitionId = answerDefinition.PsychoBioTestAnswerDefinitionId,
-                        CustomText = answer.CustomText,
-                        PsychoBioTestAnswerDefinition = answerDefinition
+                        CustomText = answerResultModel.CustomText
                     };
-                    entites.Add(entity);
-                }
+                });
+
+                entities.AddRange(answerResponseEntities);
             }
 
-            return entites;
+            return entities;
         }
 
         private int GetLevel(int generalCondition)

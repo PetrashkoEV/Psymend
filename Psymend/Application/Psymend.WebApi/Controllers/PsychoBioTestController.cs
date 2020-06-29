@@ -90,7 +90,7 @@ namespace Psymend.WebApi.Controllers
 
             if (result == null)
             {
-                return NotFound();
+                return Problem();
             }
 
             return Ok(result);
