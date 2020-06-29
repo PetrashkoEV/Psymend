@@ -4,6 +4,7 @@ using System.Linq;
 using Psymend.Core.Enums;
 using Psymend.Domain.Core.Models;
 using Psymend.Domain.Core.Models.Enums;
+using Psymend.Domain.Core.Models.PsychoBioTest;
 using Psymend.Domain.Core.Services;
 using Psymend.Domain.Mappers.PsychoBioTest;
 using Psymend.Domain.Test.PsychoBio.Core.Models;
@@ -81,7 +82,7 @@ namespace Psymend.Domain.Services
                 PsychoBioTest = new PsychoBioTestEntity
                 {
                     CreateDate = DateTime.UtcNow,
-                    PsychoBioResult = new PsychoBioResultEntity
+                    PsychoBioTestResult = new PsychoBioTestResultEntity
                     {
                         AnxietyId = anxiety.PsychobioTestSummaryDescriptionId,
                         DisadaptationId = disadaptation.PsychobioTestSummaryDescriptionId,
@@ -121,22 +122,6 @@ namespace Psymend.Domain.Services
                     entites.Add(entity);
                 }
             }
-
-            //foreach (var response in testResponse)
-            //{
-            //    foreach (var answer in response.Answers)
-            //    {
-            //        var answerEntity = _repository.GetAnswerDefinition(response.QuestionNumber, answer.AnswerNumber);
-            //        var entity = new PsychoBioTestAnswerResponseEntity
-            //        {
-            //            PsychoBioTestAnswerDefinitionId = answerEntity.PsychoBioTestAnswerDefinitionId,
-            //            CustomText = answer.CustomText
-            //        };
-            //        entites.Add(entity);
-            //    }
-
-
-            //}
 
             return entites;
         }

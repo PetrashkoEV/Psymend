@@ -10,7 +10,7 @@ namespace Psymend.Infrastructure.EntityTypeConfigurations.PsychoBioTest
         {
             builder.ToTable("psychobio_test").HasKey(p => p.PsychobioTestId);
 
-            builder.HasOne(p => p.PsychoBioResult)
+            builder.HasOne(p => p.PsychoBioTestResult)
                 .WithMany(u => u.PsychobioTests)
                 .HasForeignKey(i => i.PsychobioResultId);
         }

@@ -1,6 +1,6 @@
-﻿namespace Psymend.Domain.Core.Models
+﻿namespace Psymend.Domain.Core.Models.PsychoBioTest
 {
-    public class PsychoBioResultModel
+    public class PsychoBioTestResultModel
     {
         public PsychoBioTestSummaryDescriptionModel Disadaptation { get; set; }
         public PsychoBioTestSummaryDescriptionModel Anxiety { get; set; }

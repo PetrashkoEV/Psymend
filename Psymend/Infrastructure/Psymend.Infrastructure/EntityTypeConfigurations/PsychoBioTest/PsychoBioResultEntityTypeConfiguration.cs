@@ -4,9 +4,9 @@ using Psymend.Infrastructure.Core.Entities.PsychoBioTest;
 
 namespace Psymend.Infrastructure.EntityTypeConfigurations.PsychoBioTest
 {
-    public class PsychoBioResultEntityTypeConfiguration : IEntityTypeConfiguration<PsychoBioResultEntity>
+    public class PsychoBioResultEntityTypeConfiguration : IEntityTypeConfiguration<PsychoBioTestResultEntity>
     {
-        public void Configure(EntityTypeBuilder<PsychoBioResultEntity> builder)
+        public void Configure(EntityTypeBuilder<PsychoBioTestResultEntity> builder)
         {
             builder.ToTable("psychobio_result").HasKey(p => p.PsychobioResultId);
 

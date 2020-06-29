@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Psymend.Domain.Core.Models;
+using Psymend.Domain.Core.Models.PsychoBioTest;
 
 namespace Psymend.Domain.Core.Services
 {

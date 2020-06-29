@@ -1,13 +1,14 @@
 ﻿using Psymend.Domain.Core.Models;
+using Psymend.Domain.Core.Models.PsychoBioTest;
 using Psymend.Infrastructure.Core.Entities.PsychoBioTest;
 
 namespace Psymend.Domain.Mappers.PsychoBioTest
 {
     public static class PsychoBioResultMapper
     {
-        public static PsychoBioResultModel ToDomainModel(this PsychoBioResultEntity entity)
+        public static PsychoBioTestResultModel ToDomainModel(this PsychoBioTestResultEntity entity)
         {
-            var model = new PsychoBioResultModel()
+            var model = new PsychoBioTestResultModel()
             {
                 GeneralConditionValue = entity.GeneralConditionValue,
                 Anxiety = new PsychoBioTestSummaryDescriptionModel

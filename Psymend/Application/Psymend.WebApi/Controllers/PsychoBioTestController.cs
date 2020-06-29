@@ -5,11 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Psymend.Domain.Core.Models;
-using Psymend.Domain.Core.Models.Enums;
+using Psymend.Domain.Core.Models.PsychoBioTest;
 using Psymend.Domain.Core.Services;
 using Psymend.WebApi.Model;
-using PsychoBioTestAnswerResultModel = Psymend.Domain.Core.Models.PsychoBioTestAnswerResultModel;
+using PsychoBioTestAnswerResultModel = Psymend.Domain.Core.Models.PsychoBioTest.PsychoBioTestAnswerResultModel;
 
 namespace Psymend.WebApi.Controllers
 {

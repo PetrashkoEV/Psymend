@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Psymend.Domain.Core.Models;
+using Psymend.Domain.Core.Models.PsychoBioTest;
 using Psymend.Infrastructure.Core.Entities.PsychoBioTest;
 
 namespace Psymend.Domain.Mappers.PsychoBioTest
@@ -22,7 +23,7 @@ namespace Psymend.Domain.Mappers.PsychoBioTest
             {
                 PsychobioTestId = entity.PsychobioTestId,
                 CreateDate = entity.CreateDate,
-                PsychoBioResult = entity.PsychoBioResult.ToDomainModel(),
+                PsychoBioTestResult = entity.PsychoBioTestResult.ToDomainModel(),
                 Answers = answers
             };
 

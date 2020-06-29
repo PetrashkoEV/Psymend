@@ -11,6 +11,6 @@ namespace Psymend.Infrastructure.Core.Entities.PsychoBioTest
 
         public List<TestEntity> Tests { get; set; }
         public List<PsychoBioTestAnswerResponseEntity> AnswerResponses { get; set; }
-        public PsychoBioResultEntity PsychoBioResult { get; set; }
+        public PsychoBioTestResultEntity PsychoBioTestResult { get; set; }
     }
 }

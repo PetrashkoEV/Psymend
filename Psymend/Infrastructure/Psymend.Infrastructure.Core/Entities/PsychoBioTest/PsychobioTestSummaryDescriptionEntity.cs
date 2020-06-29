@@ -9,9 +9,9 @@ namespace Psymend.Infrastructure.Core.Entities.PsychoBioTest
         public int Value { get; set; }
         public string Description { get; set; }
 
-        public ICollection<PsychoBioResultEntity> DisadaptationResults { get; set; }
-        public ICollection<PsychoBioResultEntity> AnxietyResults { get; set; }
-        public ICollection<PsychoBioResultEntity> FrustrationResults { get; set; }
-        public ICollection<PsychoBioResultEntity> GeneralConditionResults { get; set; }
+        public ICollection<PsychoBioTestResultEntity> DisadaptationResults { get; set; }
+        public ICollection<PsychoBioTestResultEntity> AnxietyResults { get; set; }
+        public ICollection<PsychoBioTestResultEntity> FrustrationResults { get; set; }
+        public ICollection<PsychoBioTestResultEntity> GeneralConditionResults { get; set; }
     }
 }

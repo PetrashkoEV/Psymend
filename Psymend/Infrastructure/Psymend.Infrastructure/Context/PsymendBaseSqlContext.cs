@@ -52,7 +52,7 @@ namespace Psymend.Infrastructure.Context
 
         public virtual DbSet<PsychoBioTestAnswerDefinitionEntity> PsychoBioTestAnswerDefinitions { get; set; }
         public virtual DbSet<PsychoBioTestQuestionEntity> PsychoBioTestQuestions { get; set; }
-        public virtual DbSet<PsychoBioResultEntity> PsychoBioResults { get; set; }
+        public virtual DbSet<PsychoBioTestResultEntity> PsychoBioResults { get; set; }
         public virtual DbSet<PsychoBioTestEntity> PsychoBioTests { get; set; }
         public virtual DbSet<PsychobioTestSummaryDescriptionEntity> PsychoBioTestSummaryDescriptions { get; set; }
         public virtual DbSet<PsychoBioTestAnswerResponseEntity> PsychoBioTestAnswerResponses { get; set; }

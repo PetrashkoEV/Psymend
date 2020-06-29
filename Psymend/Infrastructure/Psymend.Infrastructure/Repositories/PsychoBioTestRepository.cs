@@ -38,7 +38,7 @@ namespace Psymend.Infrastructure.Repositories
                 .Include(test => test.AnswerResponses)
                     .ThenInclude(answer => answer.PsychoBioTestAnswerDefinition)
                         .ThenInclude(answerDefinition => answerDefinition.Question)
-                .Include(test => test.PsychoBioResult)
+                .Include(test => test.PsychoBioTestResult)
                 .FirstOrDefault(item => item.PsychobioTestId == testId && item.Tests.FirstOrDefault().UserId == userId);
 
             if (testEntity == null)
@@ -50,15 +50,15 @@ namespace Psymend.Infrastructure.Repositories
                 .Include(item => item.Anxiety)
                 .Include(item => item.Frustration)
                 .Include(item => item.GeneralCondition)
-                .FirstOrDefault(item => item.PsychobioResultId == testEntity.PsychoBioResult.PsychobioResultId);
+                .FirstOrDefault(item => item.PsychobioResultId == testEntity.PsychoBioTestResult.PsychobioResultId);
 
             if (resultEntity == null) 
                 return testEntity;
 
-            testEntity.PsychoBioResult.Disadaptation = resultEntity.Disadaptation;
-            testEntity.PsychoBioResult.Anxiety = resultEntity.Anxiety;
-            testEntity.PsychoBioResult.Frustration = resultEntity.Frustration;
-            testEntity.PsychoBioResult.GeneralCondition = resultEntity.GeneralCondition;
+            testEntity.PsychoBioTestResult.Disadaptation = resultEntity.Disadaptation;
+            testEntity.PsychoBioTestResult.Anxiety = resultEntity.Anxiety;
+            testEntity.PsychoBioTestResult.Frustration = resultEntity.Frustration;
+            testEntity.PsychoBioTestResult.GeneralCondition = resultEntity.GeneralCondition;
 
             return testEntity;
         }

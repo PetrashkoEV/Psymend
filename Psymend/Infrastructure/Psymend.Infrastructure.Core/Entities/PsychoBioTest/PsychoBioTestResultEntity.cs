@@ -2,7 +2,7 @@
 
 namespace Psymend.Infrastructure.Core.Entities.PsychoBioTest
 {
-    public class PsychoBioResultEntity
+    public class PsychoBioTestResultEntity
     {
         public int PsychobioResultId { get; set; }
 

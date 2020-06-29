@@ -1,4 +1,4 @@
-﻿namespace Psymend.Domain.Core.Models
+﻿namespace Psymend.Domain.Core.Models.PsychoBioTest
 {
     public class PsychoBioTestSummaryDescriptionModel
     {
