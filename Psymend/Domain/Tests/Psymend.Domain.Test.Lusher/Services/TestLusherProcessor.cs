@@ -35,6 +35,11 @@ namespace Psymend.Domain.Test.Lusher.Services
                     currentGroupType,
                     i);
 
+                if (i == 0)
+                {
+                    currentGroupType = GroupType.Positive;
+                }
+
                 if (anxiety || DetectingAnxiety(firstChoice[i], secondChoice[i], i))
                 {
                     anxiety = true;
@@ -142,9 +147,10 @@ namespace Psymend.Domain.Test.Lusher.Services
                 Groups = new List<LusherResultGroup>()
             };
 
+            var groups = new List<LusherResultGroup>();
             for (var i = 0; i < test.FirstChoice.Count; i++)
             {
-                result.Groups.Add(new LusherResultGroup
+                groups.Add(new LusherResultGroup
                 {
                     FirstColor = test.FirstChoice[i].Color,
                     SecondAnxiety = test.SecondChoice[i].Anxiety,
@@ -152,6 +158,20 @@ namespace Psymend.Domain.Test.Lusher.Services
                     SecondColor = test.SecondChoice[i].Color,
                     Position = i
                 });
+            }
+
+            LusherResultGroup previousLusherResultGroup = null;
+
+            foreach (var lusherResultGroup in groups)
+            {
+                if (!(previousLusherResultGroup != null 
+                      && lusherResultGroup.FirstColor == previousLusherResultGroup.SecondColor 
+                      && lusherResultGroup.SecondColor == previousLusherResultGroup.FirstColor))
+                {
+                    result.Groups.Add(lusherResultGroup);
+                }
+
+                previousLusherResultGroup = lusherResultGroup;
             }
 
             return result;
